@@ -6,10 +6,9 @@ export default class HogCard extends React.Component{
 
 
   render(){
-    console.log("In HG. -->", this.props.hogObject)
     return (
       <div className="ui eight wide column">
-        <p>{this.props.hogObject.name}</p>
+        <h2>{this.props.hogObject.name}</h2>
       <img src={require(`../hog-imgs/${this.props.img}.jpg`)} alt={this.props.hogObject.name}/>
 
         <div>

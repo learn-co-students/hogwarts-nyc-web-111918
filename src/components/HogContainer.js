@@ -7,8 +7,6 @@ export default class HogContainer extends React.Component{
     return hogName.toLowerCase().split(" ").join("_")
   }
 
-
-
   mapHogData = (hoggies)=>{
     return hoggies.map((hog, index)=>{
           return <HogCard key={index} indexHog={index} hogObject={hog} img={this.changeHogNameIntoImgName(hog.name)} showDetails={this.props.showDetails}/>
@@ -16,8 +14,7 @@ export default class HogContainer extends React.Component{
   }
 
   render(){
-    const filterGreased =this.props.hogData.filter((hog)=>hog.greased)
-
+    const filterGreased = this.props.hogData.filter((hog)=>hog.greased)
     return (
       <div className="ui grid container">
       {this.props.checkGreased ? this.mapHogData(filterGreased) : this.mapHogData(this.props.hogData)}

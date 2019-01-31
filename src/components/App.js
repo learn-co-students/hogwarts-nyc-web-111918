@@ -8,6 +8,7 @@ class App extends Component {
   state = {
     hogs: hogs,
     checkGreased: false,
+    showDetails: false
   }
 
   showDetails = (hogName) => {
@@ -17,7 +18,7 @@ class App extends Component {
     const newHog = {...findHog, showDetails: true}
     copyHogs[findHogIndex] = newHog
 
-    console.log(newHog.showDetails ===true)
+    // console.log(newHog.showDetails ===true)
 
     this.setState({ hogs: copyHogs })
   }
@@ -42,18 +43,11 @@ class App extends Component {
       return 0;
     })})
   }
-
-
   handleGreased=()=>{
     this.setState({
       checkGreased: !this.state.checkGreased
     })
   }
-  // filterGreased = ()=>{
-  //   this.setState({
-  //     hogs: this.state.hogs.filter((hog)=>{hog.greased})
-  //   })
-  // }
   //
   // hideDetails = (hogName) => {
   //   //if you click on a button, it changes the state of that hog object to false
@@ -73,7 +67,6 @@ class App extends Component {
           handleGreased={this.handleGreased}/>
           < HogContainer hogData={this.state.hogs} showDetails={this.showDetails}
           checkGreased={this.state.checkGreased}/>
-
       </div>
     )
   }
