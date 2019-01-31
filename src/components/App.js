@@ -15,6 +15,21 @@ class App extends Component {
     }
   }
 
+  onChangeType = (e) => {
+    switch(e.target.value) {
+      case "Greased":
+        this.setState({
+          hogs: hogs.filter(hog => hog.greased)
+        })
+        break;
+      case "All": {
+        this.setState({
+          hogs: hogs
+        })
+      }
+    }
+  }
+
 
    pigImages = hogs.map(hog => {
         return hog.name.replace(/ /g,"_").toLowerCase()+ ".jpg"
@@ -23,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          < Nav />
+          < Nav onChangeType={this.onChangeType}/>
           <HogContainer hogs={this.state.hogs} jpegs={this.pigImages}/>
       </div>
     )
